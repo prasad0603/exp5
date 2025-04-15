@@ -1,0 +1,24 @@
+name: Hello World Python
+
+on:
+  push:
+    branches:
+      - main  # or your branch name
+  workflow_dispatch:  # allows manual run from GitHub UI
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run hello world
+        run: |
+          python -c "print('helloworld')"
